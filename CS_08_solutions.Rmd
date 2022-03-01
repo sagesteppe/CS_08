@@ -1,0 +1,103 @@
+---
+title: "CS_08"
+author: "steppe"
+date: "2/28/2022"
+output: html_document
+---
+```{r}
+library(tidyverse)
+```
+
+```{r}
+data(iris)
+head(iris)
+```
+
+```{r}
+
+a <- iris %>% 
+  split(.$Species) %>% 
+  map(summary) %>% 
+  map(as.data.frame) %>% 
+  map(drop_na) %>% 
+  bind_rows() %>% 
+  separate(Freq, c('Statistic', 'Value'), ":") %>% 
+  filter(!str_detect(Var2, 'Species')) %>% 
+  mutate(Species = c(rep('setosa', times = 24), 
+                     rep('versicolor', times = 24), 
+                     rep('virginica', times = 24))) %>% 
+  select(-Var1) %>% 
+  rename(Variable = Var2) %>% 
+  filter(!str_detect(Statistic, 'Qu'))
+
+iris_table <- iris %>% 
+  group_by(Species) %>% 
+  summarise(across(everything(), list(min = min,
+                         max = max, 
+                         mean = mean,
+                         median = median))) %>% 
+  pivot_longer(-Species, values_to = 'Value') %>% 
+  separate(name, c('Tissue', 'Statistic'), sep = "_") %>% 
+  
+  # style down here
+  mutate(Tissue = str_replace(Tissue, '[.]', ' ')) %>% 
+  mutate(Species =  paste0('I. ', Species)) %>% 
+  mutate(Value = round(Value, digits = 1))
+
+#b <- iris %>% 
+#  pivot_longer(-Species) %>% 
+#  split(list(.$Species, .$name))  %>% 
+#  map(summary)
+
+knitr::kable(iris_table) 
+```
+
+
+
+```{r}
+model_summary <- summary(lm(Sepal.Length ~ Sepal.Width, data = iris))
+model_summary_statistics <- tibble("intercept" = model_summary$coefficients[1,1],
+                                   "slope"     = model_summary$coefficients[2,1],
+                                   "p_value"   = model_summary$coefficients[2,4],
+                                   "r_squared"  = model_summary$r.squared)    
+model_summary_statistics
+mssT <- model_summary_statistics %>% 
+  mutate(across(where(is.numeric), ~ round(.x, digits = 3)))
+
+knitr::kable(mssT, 
+             col.names = c('Intercept', 'Slope','p-Value','R$^2$'),
+             align = "cccc",
+             caption = "Results of a linear model with one continuous predictor and response"
+             )
+```
+
+
+```{r Question 3}
+
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length))+
+  geom_jitter()+
+  geom_abline(intercept = model_summary$coefficients[1,1], 
+              slope = model_summary$coefficients[2,1], size = 2) +
+  theme_classic(base_size = 10) +
+  labs(title = 'Relationship between Sepal Width and Sepal Length in three Species of Iris') +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```{r Confidence Interval}
+model <- lm(Sepal.Length ~ Sepal.Width, data = iris)
+conf_int <- as.data.frame(predict(model, interval = "confidence"))
+data <- cbind(conf_int, iris)
+
+ggplot(data, aes(x = Sepal.Width, y = Sepal.Length))+
+  geom_jitter()+
+  geom_abline(intercept = model_summary$coefficients[1,1], 
+              slope = model_summary$coefficients[2,1], size = 2) +
+  theme_classic(base_size = 10)+ 
+  geom_line(aes(y = lwr), color = "black", linetype = "dashed") +
+  geom_line(aes(y = upr), color = "black", linetype = "dashed") +
+  geom_ribbon(aes(ymin=lwr, ymax=upr), alpha=0.1) +
+  labs(title = 'Relationship between Sepal Width and Sepal Length in three Species of Iris') +
+  theme(plot.title = element_text(hjust = 0.5))
+  
+```
