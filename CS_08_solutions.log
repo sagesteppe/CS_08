@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.22)  2 MAR 2022 09:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.22)  2 MAR 2022 16:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1106,64 +1106,64 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 
-Package xcolor Warning: Incompatible color definition on input line 128.
+Package xcolor Warning: Incompatible color definition on input line 136.
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 129.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 137.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 130.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 139.
 
-Package xcolor Warning: Incompatible color definition on input line 133.
-
-
-Package xcolor Warning: Incompatible color definition on input line 133.
+Package xcolor Warning: Incompatible color definition on input line 142.
 
 
-Package xcolor Warning: Incompatible color definition on input line 153.
+Package xcolor Warning: Incompatible color definition on input line 142.
 
 
-Package xcolor Warning: Incompatible color definition on input line 158.
+Package xcolor Warning: Incompatible color definition on input line 144.
 
 
-Package xcolor Warning: Incompatible color definition on input line 158.
+Package xcolor Warning: Incompatible color definition on input line 149.
 
 
-Package xcolor Warning: Incompatible color definition on input line 170.
+Package xcolor Warning: Incompatible color definition on input line 149.
 
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 178
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 151.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 151.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 151.
+
+Package xcolor Warning: Incompatible color definition on input line 168.
+
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 176
 .
 (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
-Package xcolor Warning: Incompatible color definition on input line 208.
+Package xcolor Warning: Incompatible color definition on input line 215.
 
 
-Package xcolor Warning: Incompatible color definition on input line 208.
+Package xcolor Warning: Incompatible color definition on input line 215.
 
 
-Package xcolor Warning: Incompatible color definition on input line 208.
+Package xcolor Warning: Incompatible color definition on input line 215.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-Package xcolor Warning: Incompatible color definition on input line 208.
+Package xcolor Warning: Incompatible color definition on input line 215.
 
 
-Package xcolor Warning: Incompatible color definition on input line 208.
+Package xcolor Warning: Incompatible color definition on input line 215.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 210.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 210.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 210.
 
-Package xcolor Warning: Incompatible color definition on input line 240.
+Package xcolor Warning: Incompatible color definition on input line 245.
 
 
 Package xcolor Warning: Incompatible color definition on input line 249.
@@ -1172,97 +1172,189 @@ Package xcolor Warning: Incompatible color definition on input line 249.
 Package xcolor Warning: Incompatible color definition on input line 249.
 
 
-Package xcolor Warning: Incompatible color definition on input line 258.
+Package xcolor Warning: Incompatible color definition on input line 251.
 
 
-Package xcolor Warning: Incompatible color definition on input line 269.
+Package xcolor Warning: Incompatible color definition on input line 270.
 
 
-Package xcolor Warning: Incompatible color definition on input line 269.
+Package xcolor Warning: Incompatible color definition on input line 270.
 
 
-Package xcolor Warning: Incompatible color definition on input line 284.
-
-
-Package xcolor Warning: Incompatible color definition on input line 294.
-
-
-Package xcolor Warning: Incompatible color definition on input line 294.
-
-
-Underfull \vbox (badness 1184) detected at line 294
+Underfull \vbox (badness 10000) detected at line 270
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 294.
+Package xcolor Warning: Incompatible color definition on input line 270.
 
-[2]
-
-Package xcolor Warning: Incompatible color definition on input line 294.
-
-
-Package xcolor Warning: Incompatible color definition on input line 294.
-
-<CS_08_solutions_files/figure-latex/Question 3-1.pdf, id=20, 461.725pt x 316.18
-124pt>
-File: CS_08_solutions_files/figure-latex/Question 3-1.pdf Graphic file (type pd
-f)
-<use CS_08_solutions_files/figure-latex/Question 3-1.pdf>
-Package pdftex.def Info: CS_08_solutions_files/figure-latex/Question 3-1.pdf  u
-sed on input line 296.
-(pdftex.def)             Requested size: 461.72388pt x 316.18047pt.
-
-Package xcolor Warning: Incompatible color definition on input line 298.
-
-
-Package xcolor Warning: Incompatible color definition on input line 315.
-
-
-Package xcolor Warning: Incompatible color definition on input line 315.
-
-<CS_08_solutions_files/figure-latex/Confidence Interval-1.pdf, id=21, 462.72874
-pt x 316.18124pt>
-File: CS_08_solutions_files/figure-latex/Confidence Interval-1.pdf Graphic file
- (type pdf)
-<use CS_08_solutions_files/figure-latex/Confidence Interval-1.pdf>
-Package pdftex.def Info: CS_08_solutions_files/figure-latex/Confidence Interval
--1.pdf  used on input line 317.
-(pdftex.def)             Requested size: 462.73466pt x 316.18529pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 319.
-[3pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+[2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.319 \end{document}
-                     <./CS_08_solutions_files/figure-latex/Question 3-1.pdf>] [
-4 <./CS_08_solutions_files/figure-latex/Confidence Interval-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 319.
+l.270 \end{Shaded}
+                  ]
+
+Package xcolor Warning: Incompatible color definition on input line 270.
+
+
+Package xcolor Warning: Incompatible color definition on input line 270.
+
+
+Package xcolor Warning: Incompatible color definition on input line 287.
+
+
+Package xcolor Warning: Incompatible color definition on input line 298.
+
+
+Package xcolor Warning: Incompatible color definition on input line 298.
+
+<CS_08_solutions_files/figure-latex/Plot relationship between single continuous
+ predictor and response-1.pdf, id=21, 464.73625pt x 317.185pt>
+File: CS_08_solutions_files/figure-latex/Plot relationship between single conti
+nuous predictor and response-1.pdf Graphic file (type pdf)
+<use CS_08_solutions_files/figure-latex/Plot relationship between single contin
+uous predictor and response-1.pdf>
+Package pdftex.def Info: CS_08_solutions_files/figure-latex/Plot relationship b
+etween single continuous predictor and response-1.pdf  used on input line 300.
+(pdftex.def)             Requested size: 464.74928pt x 317.19388pt.
+[3pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.306 
+       <./CS_08_solutions_files/figure-latex/Plot relationship between single c
+ontinuous predictor and response-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 307.
+
+
+Package xcolor Warning: Incompatible color definition on input line 315.
+
+
+Package xcolor Warning: Incompatible color definition on input line 315.
+
+
+Overfull \hbox (196.99304pt too wide) in paragraph at lines 319--319
+[]\T1/lmtt/m/n/10 ## Warning in predict.lm(model, interval = "prediction", leve
+l = 0.95): predictions on current data refer to _future_ responses[] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 321.
+
+
+Package xcolor Warning: Incompatible color definition on input line 382.
+
+
+Package xcolor Warning: Incompatible color definition on input line 382.
+
+
+Underfull \vbox (badness 3148) detected at line 382
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 382.
+
+[4]
+
+Package xcolor Warning: Incompatible color definition on input line 382.
+
+
+Package xcolor Warning: Incompatible color definition on input line 382.
+
+<CS_08_solutions_files/figure-latex/Plot relationship between single continuous
+ predictor and response with a confidence interval-1.pdf, id=38, 457.71pt x 316
+.18124pt>
+File: CS_08_solutions_files/figure-latex/Plot relationship between single conti
+nuous predictor and response with a confidence interval-1.pdf Graphic file (typ
+e pdf)
+<use CS_08_solutions_files/figure-latex/Plot relationship between single contin
+uous predictor and response with a confidence interval-1.pdf>
+Package pdftex.def Info: CS_08_solutions_files/figure-latex/Plot relationship b
+etween single continuous predictor and response with a confidence interval-1.pd
+f  used on input line 384.
+(pdftex.def)             Requested size: 457.72984pt x 316.19493pt.
+
+Package xcolor Warning: Incompatible color definition on input line 386.
+
+
+Package xcolor Warning: Incompatible color definition on input line 390.
+
+
+Package xcolor Warning: Incompatible color definition on input line 390.
+
+
+Package xcolor Warning: Incompatible color definition on input line 392.
+
+
+Package xcolor Warning: Incompatible color definition on input line 415.
+
+
+Package xcolor Warning: Incompatible color definition on input line 415.
+
+
+Underfull \vbox (badness 10000) detected at line 415
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 415.
+
+[5 <./CS_08_solutions_files/figure-latex/Plot relationship between single conti
+nuous predictor and response with a confidence interval-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 415.
+
+
+Package xcolor Warning: Incompatible color definition on input line 415.
+
+
+Package xcolor Warning: Incompatible color definition on input line 417.
+
+
+Package xcolor Warning: Incompatible color definition on input line 427.
+
+
+Package xcolor Warning: Incompatible color definition on input line 427.
+
+
+Package xcolor Warning: Incompatible color definition on input line 429.
+
+
+Package xcolor Warning: Incompatible color definition on input line 433.
+
+
+Package xcolor Warning: Incompatible color definition on input line 433.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 440.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 440.
 (./CS_08_solutions.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 319.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 319.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 440.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 440.
 Package rerunfilecheck Info: File `CS_08_solutions.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 319.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 440.
  ) 
 Here is how much of TeX's memory you used:
- 14625 strings out of 492982
- 209728 string characters out of 6134896
- 332348 words of memory out of 5000000
- 17920 multiletter control sequences out of 15000+600000
- 39915 words of font info for 64 fonts, out of 8000000 for 9000
+ 14633 strings out of 492982
+ 210386 string characters out of 6134896
+ 331403 words of memory out of 5000000
+ 17921 multiletter control sequences out of 15000+600000
+ 40081 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,9n,38p,324b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share
+ 34i,9n,38p,378b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
+vips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/
 fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti1
 0.pfb>
-Output written on CS_08_solutions.pdf (4 pages, 171808 bytes).
+Output written on CS_08_solutions.pdf (6 pages, 181376 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
  10251 words of extra memory for PDF output out of 12000 (max. 10000000)
 

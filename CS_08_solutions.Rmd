@@ -4,7 +4,6 @@ author: "steppe"
 date: "2/28/2022"
 output:
   pdf_document: default
-  html_document: default
 ---
 
 This is a case study !
@@ -16,19 +15,22 @@ Many solutions are available!
 We made you panic and sweat!
 
 
-```{r Load Library}
+```{r Load Library, warning = F, message = F}
+?iris
 library(kableExtra)
 library(tidyverse)
 ```
 
 ```{r View Data}
 data(iris)
-head(iris)
+knitr::kable(head(iris), booktab = T)
 ```
+
+We will now create a table of the summary statistics of this species here. 
 
 ```{r Create Iris Summary Statistics}
 
-a <- iris %>% 
+a <- iris %>%  # use map and modify the outputs
   split(.$Species) %>% 
   map(summary) %>% 
   map(as.data.frame) %>% 
@@ -43,7 +45,7 @@ a <- iris %>%
   rename(Variable = Var2) %>% 
   filter(!str_detect(Statistic, 'Qu'))
 
-iris_table <- iris %>% 
+iris_table <- iris %>% # use summarize
   group_by(Species) %>% 
   summarise(across(where(is.numeric), 
                    list(
@@ -55,7 +57,7 @@ iris_table <- iris %>%
   pivot_longer(-Species, values_to = 'Value') %>% 
   separate(name, c('Tissue', 'Statistic'), sep = "_") %>% 
   
-  # style down here
+  # here we work on styling the values for the table
   mutate(Tissue = str_replace(Tissue, '[.]', ' ')) %>% 
   mutate(Species =  paste0('I. ', Species)) %>% 
   mutate(Value = round(Value, digits = 1)) %>% 
@@ -68,7 +70,8 @@ iris_table[c(2:4, 6:8, 10:12),1] <- ""
 knitr::kable(iris_table, 
              align = "llcccc", 
              col.names = c('Species','Statistic','Length','Width','Length','Width'), 
-             caption = "Summary Statistics of Iris Dataset") %>% 
+             caption = "Summary Statistics of Iris Dataset", 
+             booktabs = T) %>% 
   kable_classic(full_width = F, html_font = "Cambria") %>% 
   add_header_above(., c(" " = 2, "Sepal" = 2, "Petal" = 2))  
 
@@ -90,12 +93,14 @@ model_summary_statistics <- model_summary_statistics %>%
 knitr::kable(model_summary_statistics, 
              col.names = c('Intercept', 'Slope','p-Value','R$^2$'),
              align = "cccc",
-             caption = "Results of a linear model with one continuous predictor and response"
+             caption = "Results of a linear model with one continuous predictor (Sepal Length) and response (Sepal Width) displays an insignifcant negative relationship",
+             booktabs = T
              ) %>% 
   kable_classic(full_width = F, html_font = "Cambria")
 
 ```
 
+We can very simply plot our linear model using the intercept and slope. 
 
 ```{r Plot relationship between single continuous predictor and response}
 
@@ -111,6 +116,7 @@ ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length))+
 
 
 We can make a big overly fancy plot of these relationships like so below. The one wrench in the gear is that I cannot figure out how to reorder the fancy dual legend with the line legend below using guides! Perhaps you can?
+
 ```{r Plot relationship between single continuous predictor and response with a confidence interval}
 model <- lm(Sepal.Length ~ Sepal.Width, data = iris)
 conf_int <- as.data.frame(predict(model, interval = "confidence", level = 0.95))
@@ -126,7 +132,6 @@ ggplot(conf_int, aes(x = Sepal.Width, y = Sepal.Length))+
     aes(
       shape=Species, color = Species)
     ) +
-  
   
   # we can add our model here
   geom_abline(intercept = model_summary$coefficients[1,1], 
@@ -164,11 +169,11 @@ ggplot(conf_int, aes(x = Sepal.Width, y = Sepal.Length))+
   
     # Some style stuff is here
   labs(title = 'Regression of Sepal Width and Sepal Length in three Iris Species',
-       y = 'Sepal Length (mm)', 
-       x = 'Sepal Width (mm)') +
+       y = 'Sepal Length (cm)', 
+       x = 'Sepal Width (cm)') +
   theme(plot.title = element_text(hjust = 0.5)) +
   
-  # we will add the p-value and r^2 to the plot - it is a little busy for my liking !
+  # we will add the p-value and r^2 to the plot - it i  s a little busy for my liking !
   annotate(geom ="text", x=2.25, y=4.1, 
            label= paste0("p-value = ", model_summary_statistics[,3])) +
   annotate(geom = "text", x=2.25, y=3.9, 
@@ -177,11 +182,11 @@ ggplot(conf_int, aes(x = Sepal.Width, y = Sepal.Length))+
   # manually select our shapes
   theme_classic()
 
-rm(model, conf_int, pred_int, data)
+rm(model, conf_int, pred_int)
 ```
 
 
-```{r Calculate our own prediction via this method}
+```{r Calculate our own prediction via this method, eval = F}
 
 p1 <- iris %>% 
   mutate(Sepal.Length.Predict = 
@@ -199,13 +204,14 @@ ggplot(data = iris, aes(x= Sepal.Width, y= Sepal.Length)) +
               alpha=0.2) + 
   labs(title = 'Relationship between Sepal Width and Sepal Length in three Iris Species',
        y = 'Sepal Length', x = 'Sepal Width') +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme_classic()
 
 rm(p1)
 ```
 
 
-```{r Plot relationship between single continuous predictor and response with a confidence interval -Compare results}
+```{r Plot relationship between single continuous predictor and response with a confidence interval -Compare results, eval= F}
 ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length))+
   geom_jitter()+
   geom_smooth(method = "lm", colour = "black", formula = y ~ x) +
@@ -220,3 +226,6 @@ ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length))+
 rm(iris, model_summary)
 ```
 
+Citations:
+
+Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2–5.
