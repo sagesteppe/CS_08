@@ -2,18 +2,31 @@
 title: "CS_08"
 author: "steppe"
 date: "2/28/2022"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
-```{r}
+
+This is a case study !
+  
+Many solutions are available!
+
+'You can go your own way, go your own way!'
+
+We made you panic and sweat!
+
+
+```{r Load Library}
+library(kableExtra)
 library(tidyverse)
 ```
 
-```{r}
+```{r View Data}
 data(iris)
 head(iris)
 ```
 
-```{r}
+```{r Create Iris Summary Statistics}
 
 a <- iris %>% 
   split(.$Species) %>% 
@@ -32,7 +45,7 @@ a <- iris %>%
 
 iris_table <- iris %>% 
   group_by(Species) %>% 
-  summarise(across(everything(), list(min = min,
+  summarise(across(everything(), list('min.' = min,
                          max = max, 
                          mean = mean,
                          median = median))) %>% 
@@ -42,49 +55,59 @@ iris_table <- iris %>%
   # style down here
   mutate(Tissue = str_replace(Tissue, '[.]', ' ')) %>% 
   mutate(Species =  paste0('I. ', Species)) %>% 
-  mutate(Value = round(Value, digits = 1))
+  mutate(Value = round(Value, digits = 1)) %>% 
+  
+  pivot_wider(names_from = Tissue, values_from = Value) %>% 
+  mutate(Statistic=fct_relevel(Statistic, "min.", "mean", "median", 'max')) %>% 
+  arrange(Species, Statistic)
 
-#b <- iris %>% 
-#  pivot_longer(-Species) %>% 
-#  split(list(.$Species, .$name))  %>% 
-#  map(summary)
+iris_table[c(2:4, 6:8, 10:12),1] <- ""
+knitr::kable(iris_table, 
+             align = "llcccc", 
+             col.names = c('Species','Statistic','Length','Width','Length','Width'), 
+             caption = "Summary Statistics of Iris Dataset") %>% 
+  kable_classic(full_width = F, html_font = "Cambria") %>% 
+  add_header_above(., c(" " = 2, "Sepal" = 2, "Petal" = 2))  
 
-knitr::kable(iris_table) 
+rm(a, iris_table)
 ```
 
 
 
-```{r}
+```{r Create Model of Single Continuous Predictor and Response}
 model_summary <- summary(lm(Sepal.Length ~ Sepal.Width, data = iris))
 model_summary_statistics <- tibble("intercept" = model_summary$coefficients[1,1],
                                    "slope"     = model_summary$coefficients[2,1],
                                    "p_value"   = model_summary$coefficients[2,4],
                                    "r_squared"  = model_summary$r.squared)    
 model_summary_statistics
-mssT <- model_summary_statistics %>% 
-  mutate(across(where(is.numeric), ~ round(.x, digits = 3)))
-
-knitr::kable(mssT, 
+model_summary_statistics %>% 
+  mutate(across(where(is.numeric), ~ round(.x, digits = 3))) %>% 
+  knitr::kable( 
              col.names = c('Intercept', 'Slope','p-Value','R$^2$'),
              align = "cccc",
              caption = "Results of a linear model with one continuous predictor and response"
-             )
+             ) %>% 
+  kable_classic(full_width = F, html_font = "Cambria")
+
+rm(model_summary_statistics)
 ```
 
 
-```{r Question 3}
+```{r Plot relationship between single continuous predictor and response}
 
 ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length))+
   geom_jitter()+
   geom_abline(intercept = model_summary$coefficients[1,1], 
               slope = model_summary$coefficients[2,1], size = 2) +
   theme_classic(base_size = 10) +
-  labs(title = 'Relationship between Sepal Width and Sepal Length in three Species of Iris') +
+  labs(title = 'Relationship between Sepal Width and Sepal Length in three Species of Iris',
+       y = 'Sepal Length', x = 'Sepal Width') +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
 
-```{r Confidence Interval}
+```{r Plot relationship between single continuous predictor and response with a confidence interval}
 model <- lm(Sepal.Length ~ Sepal.Width, data = iris)
 conf_int <- as.data.frame(predict(model, interval = "confidence"))
 data <- cbind(conf_int, iris)
@@ -97,7 +120,26 @@ ggplot(data, aes(x = Sepal.Width, y = Sepal.Length))+
   geom_line(aes(y = lwr), color = "black", linetype = "dashed") +
   geom_line(aes(y = upr), color = "black", linetype = "dashed") +
   geom_ribbon(aes(ymin=lwr, ymax=upr), alpha=0.1) +
-  labs(title = 'Relationship between Sepal Width and Sepal Length in three Species of Iris') +
+  labs(title = 'Relationship between Sepal Width and Sepal Length in three Iris Species',
+       y = 'Sepal Length', x = 'Sepal Width') +
   theme(plot.title = element_text(hjust = 0.5))
-  
+
+rm(model, conf_int, data)
 ```
+
+
+```{r Plot relationship between single continuous predictor and response with a confidence interval -Compare results}
+ggplot(data, aes(x = Sepal.Width, y = Sepal.Length))+
+  geom_jitter()+
+  geom_smooth(method = "lm", colour = "black", formula = y ~ x) +
+  labs(title = 'Relationship between Sepal Width and Sepal Length in three Iris Species',
+       y = 'Sepal Length', x = 'Sepal Width') +
+  theme_classic(base_size = 10) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```{r Clear environment}
+rm(iris, model_summary)
+```
+
